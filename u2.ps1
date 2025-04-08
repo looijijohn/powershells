@@ -4,9 +4,7 @@ Import-Module ActiveDirectory
  
 
 # Create session option with a 2-second timeout
-$option = New-PSSessionOption -OpenTimeout 10
-
-
+$option = New-PSSessionOption -OpenTimeout 2000
 
 # Get the list of all computer names and ObjectGUID from Active Directory
 $computers = Get-ADComputer -Filter * -Properties ObjectGUID | Select-Object Name, ObjectGUID

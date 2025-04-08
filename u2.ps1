@@ -4,7 +4,7 @@ Import-Module ActiveDirectory
  
 
 # Create session option with a 2-second timeout
-$option = New-PSSessionOption -OpenTimeout 2000
+$option = New-PSSessionOption -OpenTimeout 10
 
 # Get the list of all computer names and ObjectGUID from Active Directory
 $computers = Get-ADComputer -Filter * -Properties ObjectGUID | Select-Object Name, ObjectGUID
@@ -60,7 +60,7 @@ foreach ($computer in $computers) {
             
             # Return the output
             $batchOutput
-        }  -SessionOption $option -ErrorAction Stop
+        } -SessionOption $option -ErrorAction Stop
 
         # Split the comma-separated output into fields
         $fields = $output.Trim().Split(',')
@@ -79,6 +79,7 @@ foreach ($computer in $computers) {
             }
             # Add the result to the array
             $results += $result
+            $results | Format-Table -AutoSize
         } else {
             Write-Warning "Unexpected output format from $($computer.Name)"
         }

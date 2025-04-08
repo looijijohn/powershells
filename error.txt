@@ -1,24 +1,11 @@
-x.ps1
-WIN-HUVO9UDJ1U3
-DESKTOP-7KESEU8
-WARNING: Failed to run on DESKTOP-7KESEU8: [DESKTOP-7KESEU8] Connecting to remote server DESKTOP-7KESEU8 failed with t
-he following error message : The client cannot connect to the destination specified in the request. Verify that the se
-rvice on the destination is running and is accepting requests. Consult the logs and documentation for the WS-Managemen
-t service running on the destination, most commonly IIS or WinRM. If the destination is the WinRM service, run the fol
-lowing command on the destination to analyze and configure the WinRM service: "winrm quickconfig". For more informatio
-n, see the about_Remote_Troubleshooting Help topic.
-
-
-
-
-
-Invoke-Command -ComputerName 192.168.22.129 -ScriptBlock { & "C:\batch.bat" }
-[192.168.22.129] Connecting to remote server 192.168.22.129 failed with the following error
-message : The WinRM client cannot process the request. Default authentication may be used with an
-IP address under the following conditions: the transport is HTTPS or the destination is in the
-TrustedHosts list, and explicit credentials are provided. Use winrm.cmd to configure
-TrustedHosts. Note that computers in the TrustedHosts list might not be authenticated. For more
-information on how to set TrustedHosts run the following command: winrm help config. For more
-information, see the about_Remote_Troubleshooting Help topic.
-    + CategoryInfo          : OpenError: (192.168.22.129:String) [], PSRemotingTransportException
-    + FullyQualifiedErrorId : CannotUseIPAddress,PSSessionStateBroken
+"PowerShell error: + $computers | ForEach-Object -Parallel {\r\n+
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n    
+              + CategoryInfo       
+                 : MetadataError: (:) 
+                 [ForEach-Object], ParameterBindingException\r\n    + FullyQualifiedErrorId : AmbiguousParameterSet,Microsoft.PowerShell.Commands.ForEachObjectCommand\r\n \r\n"
+ForEach-Object : Parameter set cannot be resolved using the specified named parameters.
+At C:\Users\administrator\Desktop\x\x.parallel.ps1:21 char:14
++ $computers | ForEach-Object -Parallel {
++              ~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : MetadataError: (:) [ForEach-Object], ParameterBindingException
+    + FullyQualifiedErrorId : AmbiguousParameterSet
